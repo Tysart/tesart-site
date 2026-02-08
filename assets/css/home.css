@@ -32,7 +32,13 @@
   text-transform: uppercase;
   line-height: 1.05;
   text-align: center;
+  opacity: 0;
   transform: scale(0.96);
+  animation: none;
+}
+
+body.fonts-ready .preload__title{
+  opacity: 1;
   animation: preloadZoom 1.4s ease forwards;
 }
 
@@ -197,6 +203,55 @@ body.is-loaded .preload{
 @media (max-width: 640px) {
   .hero-panel { width: min(94vw, 720px); }
   .hero-title { font-size: 2.6rem; }
+  .preload__title{ letter-spacing: 0.26em; }
+}
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero-content { align-items: center; }
+
+  .hero-panel {
+    width: min(92vw, 900px);
+    padding: 1.2rem 1.6rem 1.2rem;
+    border-radius: 18px;
+  }
+
+  .hero-title {
+    font-size: 2.1rem;
+    letter-spacing: 0.18em;
+    margin-bottom: 0.6rem;
+  }
+
+  .hero-tagline {
+    font-size: 0.9rem;
+    margin: 0 auto 1rem;
+  }
+
+  .hero-role {
+    font-size: 0.66rem;
+    letter-spacing: 0.22em;
+    margin-bottom: 1.1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: row;
+    gap: 0.6rem;
+  }
+
+  .hero-button {
+    min-width: 0;
+    padding: 0.55rem 1.2rem;
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+  }
+
+  .contact-icons {
+    margin-top: 1rem;
+    gap: 0.8rem;
+  }
+
+  .hero-copy-inline {
+    margin-top: 0.9rem;
+  }
 }
 
 body.is-home .page-footer{ display: none; }
