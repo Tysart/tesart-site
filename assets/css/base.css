@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Cinzel", "Times New Roman", serif;
+
+  --bg-0: #040207;
+  --bg-1: #09040f;
+  --bg-2: #12070f;
+
+  --text-strong: #f5f3ee;
+  --text: rgba(245, 243, 238, 0.86);
+  --text-dim: rgba(245, 243, 238, 0.62);
+
+  --accent: #d6b36b;
+  --accent-soft: rgba(214, 179, 107, 0.35);
+
+  --panel: rgba(8, 6, 14, 0.72);
+  --panel-border: rgba(255, 255, 255, 0.14);
+  --panel-shadow: 0 30px 90px rgba(0, 0, 0, 0.85);
+
+  --parallax-x: 0;
+  --parallax-y: 0;
+  --page-index: 0;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--text);
+  background: radial-gradient(1200px 800px at 50% -10%, rgba(120, 20, 20, 0.24), transparent 65%),
+              radial-gradient(1200px 900px at 70% 10%, rgba(25, 40, 80, 0.22), transparent 70%),
+              linear-gradient(180deg, var(--bg-2), var(--bg-0));
+  background-attachment: fixed;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: -20vh;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.06), transparent 45%),
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.04), transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.03), transparent 55%);
+  opacity: 0.6;
+  mix-blend-mode: screen;
+  z-index: 1;
+}
+
+button { font-family: inherit; }
+img { max-width: 100%; display: block; }
+
+body.modal-open { overflow: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
