@@ -266,7 +266,8 @@
   }
 
   .modal__media{
-    aspect-ratio: 16 / 8.2;
+    aspect-ratio: auto;
+    height: min(62vh, 360px);
   }
 
   .modal__meta{
