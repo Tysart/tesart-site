@@ -3,11 +3,12 @@
 .hero-content {
   position: relative;
   z-index: 5;
-  height: 100vh;
+  height: 100svh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 1.5rem;
+  padding: max(1rem, env(safe-area-inset-top)) 1.5rem max(1rem, env(safe-area-inset-bottom));
   perspective: 1200px;
 }
 
@@ -64,11 +65,9 @@ body.is-loaded .preload{
 }
 
 .hero-panel {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  position: relative;
   transform:
-    translate3d(-50%, -50%, 0)
+    translate3d(0, 0, 0)
     rotateX(calc(var(--parallax-y) * 2.2deg))
     rotateY(calc(var(--parallax-x) * -2.2deg));
   z-index: 6;
