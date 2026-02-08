@@ -60,6 +60,7 @@
   transform-style: preserve-3d;
 }
 
+
 .about-card::after{
   content: "";
   position: absolute;

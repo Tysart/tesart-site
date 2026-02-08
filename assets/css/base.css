@@ -44,19 +44,6 @@ body {
   background-attachment: fixed;
 }
 
-body.theme-director{
-  --bg-0: #020104;
-  --bg-1: #07030b;
-  --bg-2: #0f050b;
-  --text-strong: #f9f2e6;
-  --text: rgba(249, 242, 230, 0.9);
-  --text-dim: rgba(249, 242, 230, 0.6);
-  --accent: #e0c07a;
-  --accent-soft: rgba(224, 192, 122, 0.35);
-  --panel: rgba(6, 4, 10, 0.78);
-  --panel-border: rgba(224, 192, 122, 0.22);
-  --panel-shadow: 0 30px 90px rgba(0, 0, 0, 0.9);
-}
 
 body::after {
   content: "";
@@ -74,6 +61,18 @@ body::after {
 
 button { font-family: inherit; }
 img { max-width: 100%; display: block; }
+button,
+a,
+input,
+textarea,
+select,
+.video-card,
+.lesson-card,
+.filter-btn,
+.nav-pill,
+.button {
+  -webkit-tap-highlight-color: transparent;
+}
 
 body.modal-open { overflow: hidden; }
 

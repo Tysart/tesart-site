@@ -92,6 +92,7 @@ body.is-loaded .preload{
   transition: transform 0.6s ease;
 }
 
+
 .hero-panel::before {
   content:"";
   position:absolute;

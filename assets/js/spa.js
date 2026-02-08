@@ -158,24 +158,6 @@ if (instant) {
   });
 
   /* =========================
-     DIRECTOR THEME
-  ========================= */
-  const themeToggle = document.querySelector('.js-theme-toggle');
-  const savedTheme = localStorage.getItem('tesart-theme');
-  if (savedTheme === 'director') {
-    body.classList.add('theme-director');
-    if (themeToggle) themeToggle.setAttribute('aria-pressed', 'true');
-  }
-
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const isOn = body.classList.toggle('theme-director');
-      themeToggle.setAttribute('aria-pressed', isOn ? 'true' : 'false');
-      localStorage.setItem('tesart-theme', isOn ? 'director' : 'default');
-    });
-  }
-
-  /* =========================
      START PAGE
   ========================= */
   let startPage = 'home';

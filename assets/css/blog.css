@@ -23,6 +23,7 @@
   opacity: 0;
 }
 
+
 .lesson-card::after{
   content: "";
   position: absolute;
@@ -73,6 +74,7 @@
   aspect-ratio: 16 / 9;
   background: #000;
 }
+
 
 .lesson-thumb picture{
   position: absolute;
