@@ -74,6 +74,7 @@
     rotateX(calc(var(--parallax-y) * 2.2deg))
     rotateY(calc(var(--parallax-x) * -2.2deg));
   transform-style: preserve-3d;
+  opacity: 0;
 }
 
 .video-card::after{
@@ -109,6 +110,15 @@
     rotateX(calc(var(--parallax-y) * 3deg))
     rotateY(calc(var(--parallax-x) * -3deg));
   box-shadow: 0 22px 65px rgba(0,0,0,0.7);
+}
+
+.page.is-enter .video-card{
+  opacity: 1;
+  transform:
+    translateY(0)
+    rotateX(calc(var(--parallax-y) * 2.2deg))
+    rotateY(calc(var(--parallax-x) * -2.2deg));
+  transition-delay: calc(var(--stagger) * 60ms);
 }
 
 /* “More glossy glass” thumb */

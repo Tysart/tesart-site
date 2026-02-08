@@ -213,6 +213,25 @@ body.spa { overflow: hidden; }
   flex-wrap: wrap;
 }
 
+.page-header__actions{
+  display: flex;
+  justify-content: center;
+}
+
+.nav-pill--ghost{
+  padding: 0.6rem 1.4rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  border-color: rgba(214, 179, 107, 0.22);
+  background: rgba(8, 6, 14, 0.45);
+}
+
+.nav-pill--ghost[aria-pressed="true"]{
+  border-color: rgba(214, 179, 107, 0.75);
+  background: rgba(214, 179, 107, 0.15);
+  color: #fff;
+}
+
 .page-footer{
   bottom: 0;
   padding: 0.95rem 2rem 1.1rem;
@@ -330,6 +349,7 @@ body.chrome-hidden .page-footer {
 @media (max-width: 640px) {
   .page-header__nav{ display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .page-header__nav .nav-pill{ width: 100%; height: 44px; }
+  .page-header__actions{ margin-top: 0.2rem; }
   .page-body { padding: 6rem 1.2rem 2rem; }
   .page-panel { border-radius: 18px; }
 }

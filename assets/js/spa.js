@@ -39,6 +39,23 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   }
 
+  function applyStagger(pageId) {
+    const page = pages.find(p => p.dataset.page === pageId);
+    if (!page) return;
+
+    const list = page.querySelectorAll('.video-card, .lesson-card');
+    if (!list.length) return;
+
+    page.classList.remove('is-enter');
+    list.forEach((el, i) => {
+      el.style.setProperty('--stagger', i);
+    });
+
+    requestAnimationFrame(() => {
+      page.classList.add('is-enter');
+    });
+  }
+
   function setScene(pageId, index) {
     root.dataset.scene = pageId;
     root.style.setProperty('--page-index', index);
@@ -73,6 +90,7 @@ if (isLeavingHome || isGoingHome) {
     setBodyPageClass(pageId);
     setActiveNav(pageId);
     setActivePage(pageId);
+    applyStagger(pageId);
 
     // после завершения слайда — показываем хром (если не home)
     const onDone = () => {
@@ -140,6 +158,24 @@ if (instant) {
   });
 
   /* =========================
+     DIRECTOR THEME
+  ========================= */
+  const themeToggle = document.querySelector('.js-theme-toggle');
+  const savedTheme = localStorage.getItem('tesart-theme');
+  if (savedTheme === 'director') {
+    body.classList.add('theme-director');
+    if (themeToggle) themeToggle.setAttribute('aria-pressed', 'true');
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const isOn = body.classList.toggle('theme-director');
+      themeToggle.setAttribute('aria-pressed', isOn ? 'true' : 'false');
+      localStorage.setItem('tesart-theme', isOn ? 'director' : 'default');
+    });
+  }
+
+  /* =========================
      START PAGE
   ========================= */
   let startPage = 'home';
@@ -148,6 +184,14 @@ if (instant) {
   if (body.classList.contains('is-about')) startPage = 'about';
 
   goToPage(startPage, { instant: true });
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => {
+      body.classList.add('fonts-ready');
+    });
+  } else {
+    body.classList.add('fonts-ready');
+  }
 
   window.addEventListener('load', () => {
     body.classList.remove('is-loading');

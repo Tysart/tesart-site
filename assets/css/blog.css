@@ -20,6 +20,7 @@
     rotateX(calc(var(--parallax-y) * 2deg))
     rotateY(calc(var(--parallax-x) * -2deg));
   transform-style: preserve-3d;
+  opacity: 0;
 }
 
 .lesson-card::after{
@@ -57,6 +58,14 @@
   border-color: rgba(255,255,255,0.22);
   background: rgba(0,0,0,0.28);
   box-shadow: 0 22px 65px rgba(0,0,0,0.65);
+}
+
+.page.is-enter .lesson-card{
+  opacity: 1;
+  transform:
+    rotateX(calc(var(--parallax-y) * 2deg))
+    rotateY(calc(var(--parallax-x) * -2deg));
+  transition-delay: calc(var(--stagger) * 60ms);
 }
 
 .lesson-thumb{
