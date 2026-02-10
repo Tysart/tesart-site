@@ -46,15 +46,7 @@ body.spa { overflow: hidden; }
 }
 
 .cinema-layer.layer--back {
-  background-image: image-set(
-    url("../images/pic07.avif") type("image/avif"),
-    url("../images/pic07.jpg") type("image/jpeg")
-  );
-  opacity: 0.38;
-  transform:
-    translate3d(calc(var(--page-index) * -2.3%), calc(var(--parallax-y) * 16px), 0)
-    scale(1.2);
-  filter: saturate(105%) contrast(105%) brightness(0.65);
+  display: none;
 }
 
 .cinema-layer.layer--mid {
@@ -62,22 +54,14 @@ body.spa { overflow: hidden; }
     url("../images/pic13.avif") type("image/avif"),
     url("../images/pic13.jpg") type("image/jpeg")
   );
-  opacity: 0.52;
+  opacity: 0.5;
   transform:
     translate3d(calc(var(--page-index) * -3.4%), calc(var(--parallax-y) * 22px), 0)
     scale(1.12);
 }
 
 .cinema-layer.layer--front {
-  background-image: image-set(
-    url("../images/pic11.avif") type("image/avif"),
-    url("../images/pic11.jpg") type("image/jpeg")
-  );
-  opacity: 0.25;
-  transform:
-    translate3d(calc(var(--page-index) * -4.4%), calc(var(--parallax-y) * 28px), 0)
-    scale(1.05);
-  filter: blur(2px) saturate(120%);
+  display: none;
 }
 
 .cinema-glow {
@@ -332,6 +316,7 @@ body.chrome-hidden .page-footer {
   .page-body { padding: 6rem 1.6rem 2.2rem; }
   .page-panel { padding: 2.6rem 2rem 2.2rem; }
   .page-panel__title { font-size: 2.1rem; letter-spacing: 0.16em; }
+  .cinema-layer{ transform: none; opacity: 0.45; }
 }
 
 @media (max-width: 640px) {

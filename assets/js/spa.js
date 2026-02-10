@@ -189,7 +189,8 @@ if (instant) {
   /* =========================
      CINEMA PARALLAX
   ========================= */
-  if (!reduceMotion.matches) {
+  const isMobile = window.matchMedia('(max-width: 900px)');
+  if (!reduceMotion.matches && !isMobile.matches) {
     let targetX = 0;
     let targetY = 0;
     let currentX = 0;

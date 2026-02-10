@@ -70,55 +70,18 @@
   cursor: pointer;
   transform: translateY(0);
   transition: transform .25s ease, box-shadow .25s ease;
-  transform:
-    translateY(0)
-    rotateX(calc(var(--parallax-y) * 2.2deg))
-    rotateY(calc(var(--parallax-x) * -2.2deg));
-  transform-style: preserve-3d;
+  transform: translateY(0);
   opacity: 0;
 }
 
-.video-card::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 18px;
-  pointer-events: none;
-  background:
-    linear-gradient(135deg, rgba(255,255,255,0.28), transparent 45%),
-    linear-gradient(160deg, rgba(214, 179, 107, 0.22), transparent 55%);
-  opacity: 0.42;
-  mix-blend-mode: screen;
-  transform:
-    translate3d(calc(var(--parallax-x) * 6px), calc(var(--parallax-y) * 6px), 0);
-  transition: transform .2s ease;
-}
-
-.video-card::before{
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: 20px;
-  pointer-events: none;
-  background: linear-gradient(140deg, rgba(214,179,107,0.45), rgba(214,179,107,0.05) 55%, transparent 80%);
-  opacity: 0.35;
-  mix-blend-mode: screen;
-}
-
 .video-card:hover{
-  transform:
-    translateY(-2px)
-    rotateX(calc(var(--parallax-y) * 3deg))
-    rotateY(calc(var(--parallax-x) * -3deg));
+  transform: translateY(-2px);
   box-shadow: 0 22px 65px rgba(0,0,0,0.7);
 }
 
 .page.is-enter .video-card{
   opacity: 1;
-  transform:
-    translateY(0)
-    rotateX(calc(var(--parallax-y) * 2.2deg))
-    rotateY(calc(var(--parallax-x) * -2.2deg));
+  transform: translateY(0);
   transition-delay: calc(var(--stagger) * 60ms);
 }
 
