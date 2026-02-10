@@ -72,11 +72,19 @@
   transition: transform .25s ease, box-shadow .25s ease;
   transform: translateY(0);
   opacity: 0;
+  touch-action: pan-y;
 }
 
 .video-card:hover{
   transform: translateY(-2px);
   box-shadow: 0 22px 65px rgba(0,0,0,0.7);
+}
+
+@media (hover: none) and (pointer: coarse){
+  .video-card:hover{
+    transform: translateY(0);
+    box-shadow: none;
+  }
 }
 
 .page.is-enter .video-card{

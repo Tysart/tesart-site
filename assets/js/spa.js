@@ -294,6 +294,9 @@ if (instant) {
 
   let currentList = [];
   let currentIndex = -1;
+  let moved = false;
+  let startY = 0;
+  const MOVE_THRESHOLD = 8;
 
   function stopVideo() { frame.src = ''; }
 
@@ -401,10 +404,21 @@ if (instant) {
   function next() { openByIndex(currentIndex + 1); }
   function prev() { openByIndex(currentIndex - 1); }
 
+  document.addEventListener('touchstart', (e) => {
+    startY = e.touches[0]?.clientY || 0;
+    moved = false;
+  }, { passive: true });
+
+  document.addEventListener('touchmove', (e) => {
+    const y = e.touches[0]?.clientY || 0;
+    if (Math.abs(y - startY) > MOVE_THRESHOLD) moved = true;
+  }, { passive: true });
+
   // ---------------------------
   // CLICK HANDLER (Portfolio + Blog)
   // ---------------------------
   document.addEventListener('click', (e) => {
+    if (moved) return;
     // 1) BLOG: lesson-card
     const lessonCard = e.target.closest('#blog-lessons .lesson-card[data-video]');
     if (lessonCard) {
