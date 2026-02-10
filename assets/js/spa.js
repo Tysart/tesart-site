@@ -502,39 +502,4 @@ if (instant) {
 })();
 
 
-(function mobileScrollDarken(){
-  if (window.innerWidth > 900) return;
-
-  const overlay = document.querySelector('.home-darken');
-  if (!overlay) return;
-
-  let startY = 0;
-  let current = 0;
-  const MAX = 0.55;      // максимум затемнения
-  const TRIGGER = 0.45;  // порог для перехода
-
-  window.addEventListener('touchstart', e => {
-    startY = e.touches[0].clientY;
-  }, { passive: true });
-
-  window.addEventListener('touchmove', e => {
-    const y = e.touches[0].clientY;
-    const delta = startY - y;
-
-    if (delta <= 0) return;
-
-    current = Math.min(delta / 400, MAX);
-    overlay.style.background = `rgba(0,0,0,${current})`;
-  }, { passive: true });
-
-  window.addEventListener('touchend', () => {
-    if (current > TRIGGER) {
-      const btn = document.querySelector('.js-goto[data-target="portfolio"]');
-      if (btn) btn.click();
-    }
-
-    // сброс
-    overlay.style.background = 'rgba(0,0,0,0)';
-    current = 0;
-  });
-})();
+// mobileScrollDarken removed: it caused unintended auto-navigation on scroll
